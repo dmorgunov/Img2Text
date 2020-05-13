@@ -17,8 +17,8 @@ const AppNavigator = createStackNavigator(
     History: HistoryScreen,
   },
   {
-    // initialRouteName: 'ImagePicker'
-    initialRouteName: 'History'
+    initialRouteName: 'ImagePicker'
+    // initialRouteName: 'History'
   }
 );
 

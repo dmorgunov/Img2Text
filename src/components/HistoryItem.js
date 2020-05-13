@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
 import {
-    StyleSheet, Button,
-    Text, TextInput,
+    Text,
     View, Image,
-    Platform
 } from 'react-native'
 import styles from "../../styles"
-
-// export const DOWNLOAD = require('../assets/icons/download.png');
-// import DOWNLOAD from '../assets/icons/download.png';
 
 export default class HistoryItem extends Component {
     constructor(props) {

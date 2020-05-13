@@ -36,16 +36,9 @@ class ImagePickerScreen extends Component {
         this.selectImage = this.selectImage.bind(this)
     }
 
-    goToEditScreen() {
-        console.log(this.props)
-        console.log(this.state)
-        // this.props.navigator.navigate('EditResult');
-    }
-
     selectImage() {
         ImagePicker.openPicker(imagePickerOptions).then(
             (images) => {
-                console.log(images)
                 this.setState({
                     images: images,
                     text: ''
@@ -60,7 +53,6 @@ class ImagePickerScreen extends Component {
         Ocr.recognize(imgPath, 'LANG_ENGLISH', tessOptions)
             .then((res) => {
                     this.setState({ text: this.state.text.concat(res) })
-                    console.log(res)
                 }
             )
     }
@@ -70,19 +62,20 @@ class ImagePickerScreen extends Component {
         return (
             <View style={styles.container}>
                 <Carousel images={images}/>
-                <View style={[{flexDirection: 'row', }]}>
+                <View style={[{ flexDirection: 'row' }]}>
                     <Button onPress={this.selectImage}>
                         <View style={[styles.image, styles.imageContainer, styles.rounded]}>
                             <Text>Select images!</Text>
                         </View>
                     </Button>
-                    <Button onPress={this.goToEditScreen}>
-                        <View style={[styles.image, styles.imageContainer, styles.rounded]}>
-                            <Text>Next step!</Text>
-                        </View>
-                    </Button>
+                    {
+                        !images || <Button onPress={() => this.props.navigation.navigate('EditResult', {text: this.state.text})}>
+                            <View style={[styles.image, styles.imageContainer, styles.rounded]}>
+                                <Text>Next step!</Text>
+                            </View>
+                        </Button>
+                    }
                 </View>
-                {/*<Text>{this.state.text}</Text>*/}
             </View>
         )
     }
