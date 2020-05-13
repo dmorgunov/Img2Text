@@ -12,22 +12,24 @@ export default class EditResultScreen extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            text: this.props.navigation.getParam('text',''),
+            text: this.props.navigation.getParam('text', '')
 
-    }
+        }
     }
 
     render() {
         return (
             <View style={{
-                flex: 1,
+                flex: 1
             }}>
                 <TextInput
-                    style={{fontSize: 18, flex: 9, borderColor: 'gray', borderWidth: 5, color: 'black' }}
+                    style={{ fontSize: 18, flex: 9, borderColor: 'gray', borderWidth: 5, color: 'black' }}
                     multiline={true}
                     onChangeText={(text) => this.setState({ text })}
                     value={this.state.text}/>
-                <Button title="Save"/>
+                <Button
+                    onPress={() => this.props.navigation.navigate('SaveResult', {text: this.state.text})}
+                    title="Save"/>
             </View>
         )
     }
