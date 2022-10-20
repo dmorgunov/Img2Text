@@ -26,7 +26,7 @@
     "react-native-keyboard-spacer": "^0.4.1",
     "react-native-paper": "^3.10.1",
     "react-native-pell-rich-editor": "^1.0.6",
-    "react-native-reanimated": "^1.8.0",
+    "react-native-reanimated": "^2.10.0",
     "react-native-richtext-editor": "^0.1.14",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.7.0",
